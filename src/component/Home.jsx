@@ -69,7 +69,7 @@ const Home = () => {
 
         </div>
 
-        <div className='px-10'>
+        <div className='p-1'>
             <div className='w-full mx-auto flex justify-center items-center'>
                 <div className="flex-col max-w-[795px] items-center mt-5">
                     <div className="mb-4">
@@ -95,8 +95,8 @@ const Home = () => {
 
             <div className='w-full mx-auto flex justify-center mb-10'>
                 <div className='max-w-[795px] border p-2 rounded-lg w-full'>
-                    <div className="flex justify-between w-full">
-                        <div className="flex flex-col gap-2 justify-start mr-auto">
+                    <div className="flex flex-col gap-2 lg:flex-row justify-between w-full">
+                        <div className="flex-1 flex-col w-full gap-2 justify-start mr-auto">
                             <div className="text-[16px] font-[600] leading-[23.2px] text-[#101928] flex items-center p-2">
                                 <UserRoundCheck className="w-[20px] h-[20px]" />
                                 <p className="px-2">Admins</p>
@@ -106,54 +106,61 @@ const Home = () => {
                             </p>
                         </div>
 
-                        <div className='flex justify-end'>
-                            <button onClick={handleClick} className="border rounded-lg w-[125px] h-10 mt-2 sm:mt-0 px-[12px] py-[8px] font-[600] leading-[20.3px] text-sm border-[#5E758C] flex items-center hover:scale-105">
-                                <Plus className="h-[20px] w-[20px]" />
-                                <span>Add admin</span>
-                            </button>
+                        <div className='flex-1 w-full'>
+                            <div className='flex lg:justify-end mr-4'>
+                                <button onClick={handleClick} className="border rounded-lg w-[125px] h-10 mt-2 sm:mt-0 px-[12px] py-[8px] font-[600] leading-[20.3px] text-sm border-[#5E758C] flex items-center hover:scale-105">
+                                    <Plus className="h-[20px] w-[20px]" />
+                                    <span>Add admin</span>
+                                </button>
+                            </div>
                         </div>     
                     </div>
 
-                    <div className='border border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col'>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 py-2">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
+                    <div className='border border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col p-2'>
+                        <div className='relative w-full flex justify-between border-b-2 py-2'>
+                            <p >                                
+                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
                                     Jerome Bell
                                 </span>
                                 nathan.roberts@example.com &nbsp;&nbsp;  
                                 <span className="bg-[#D0D5DD] px-2 py-1 rounded-full text-[#344054] text-sm mb-1 sm:mb-0 inline-block hover:bg-red-400 transition-all">
                                     Invitation pending
-                                </span>
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 py-2">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
+                                </span>                                 
+                            </p>
+                           <UserMinus size={24} />
+                        </div>
+
+                        <div className='relative w-full flex justify-between border-b-2 py-2'>
+                            <p >                                
+                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
                                     Floyd Miles
                                 </span>
-                                bill.sanders@example.com
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 py-2">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
+                                bill.sanders@example.com                  
+                            </p>
+                           <UserMinus size={24} />
+                        </div>
+
+                        <div className='relative w-full flex justify-between border-b-2 py-2'>
+                            <p >                                
+                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
                                     Wade Warren
                                 </span>
-                                alma.lawson@example.com 
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 py-2">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
+                                alma.lawson@example.com                  
+                            </p>
+                           <UserMinus size={24} />
+                        </div>
+
+                        <div className='relative w-full flex justify-between border-b-2 py-2'>
+                            <p >                                
+                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
                                     Bessie
                                 </span>
-                                georgia.young@example.com 
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
+                                georgia.young@example.com                 
+                            </p>
+                           <UserMinus size={24} />
+                        </div>
+
+
                         <div className='flex my-auto px-[16px] py-4'>
                             <div className='h-[36px] w-[124px] flex items-center gap-x-2'>
                                 <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg'><ChevronLeft className='w-[30px] h-[30px] text-[#344054]'/></div>
