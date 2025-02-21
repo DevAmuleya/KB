@@ -7,29 +7,35 @@
 }
 
 .tableStyle {
-  
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border: 1px solid #d1d5db; /* Light gray border */
-  }
-  
-  .table th {
-    background-color: #e5e7eb; /* Light gray header */
-    padding: 10px;
-    border: 1px solid #d1d5db;
-    text-align: left;
-  }
-  
-  .table td {
-    padding: 0 10px;
-    border: 1px solid #d1d5db;
-    text-align: left;
-    height: 30px;
-  } 
+  width: 100%;
+  overflow-x: auto;
 }
+
+.table {
+  width: 100%; /* or a specific value like 80% */
+  max-width: 1200px; /* Adjust as needed */
+  border-collapse: collapse;
+}
+  
+.table th {
+  background-color: #e5e7eb; /* Light gray header */
+  border: 1px solid #d1d5db;
+  text-align: left;
+}
+
+.table td {
+  border: 1px solid #d1d5db;
+  text-align: left;
+  height: 30px;
+}
+
+@media (max-width: 500px) {
+  .table {
+      font-size: 12px;
+      width: 100% ;
+  }
+}
+
 
 .range {
   width: 100%;

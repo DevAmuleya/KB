@@ -1,20 +1,20 @@
 import './App.css'
-import Home2 from './component/Home2'
-import Signin from './component/Signin'
-import Home from './component/Home'
+// import Home2 from './component/Home2'
+// import Signin from './component/Signin'
+// import Home from './component/Home'
 import Bulkupdate from './component/Bulkupdate'
-import Quickupdate from './component/Quickupdate'
+// import Quickupdate from './component/Quickupdate'
 
 
 function App() {
 
   return (
     <>
-      < Signin />
-      < Home />
+      {/* < Signin />
+      < Home /> */}
       < Bulkupdate />
-      < Quickupdate />
-      < Home2 />
+      {/* < Quickupdate />
+      < Home2 /> */}
     </>
   )
 }

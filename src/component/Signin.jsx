@@ -19,7 +19,7 @@ const Signin = () => {
                     <label htmlFor="email" className='left-0 top-0 -translate-y-8 absolute text-bgColor'>
                       Email address
                     </label>
-                    <input type="email" placeholder='Enter Email' id='email' name='email' className=' border w-full rounded-lg p-2 focus:outline-none' />
+                    <input type="email" placeholder='Enter Email' id='email' name='email' className='border w-full rounded-lg p-2 focus:outline-none' />
                     <Mail size={24} className='absolute right-0 top-2 -translate-x-2 text-gray-500'/>
                   </div>    
 
