@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tableStyle {
+  
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #d1d5db; /* Light gray border */
+  }
+  
+  .table th {
+    background-color: #e5e7eb; /* Light gray header */
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    text-align: left;
+  }
+  
+  .table td {
+    padding: 0 10px;
+    border: 1px solid #d1d5db;
+    text-align: left;
+    height: 30px;
+  } 
+}
+
+.range {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  accent-color: #192231;
+  outline: none;
+  background-color: #ddd; /* Default background color for the unfilled part */
+}
