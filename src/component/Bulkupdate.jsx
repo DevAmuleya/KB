@@ -19,10 +19,10 @@ const Bulkupdate = () => {
     
     };
 
-    const [isClicked, setIsClicked] = useState("");
+    const [isClicked, setIsClicked] = useState(null);
 
-    const handleClick2 = (button) => {
-        setIsClicked(button);
+    const handleClick2 = (buttonId) => {
+        setIsClicked(buttonId); 
     };
 
     const [selectedOption, setSelectedOption] = useState("bulk");
@@ -314,22 +314,25 @@ const Bulkupdate = () => {
                                 </div> 
 
                                 <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
+                                    
                                     <button
                                         type="button"
+                                        id="cancel-btn"
                                         className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
-                                            isClicked === "cancel" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                            isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
-                                        onClick={() => handleClick2("cancel")}
+                                        onClick={() => handleClick2("cancel-btn")}
                                     >
                                         Cancel
                                     </button>
 
                                     <button
                                         type="button"
+                                        id="start-btn"
                                         className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
-                                            isClicked === "start" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                            isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
-                                        onClick={() => handleClick2("start")}
+                                        onClick={() => handleClick2("start-btn")}
                                     >
                                         Start bulk update
                                     </button>

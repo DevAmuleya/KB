@@ -5,6 +5,8 @@ import {  Search, ChevronRight, ChevronsUpDown, ChevronLeft, House, Upload, Book
 const Quickupdate = () => {
 
        const [isOpen, setIsOpen] = useState(false);
+
+       const [selectedRound, setSelectedRound] = useState("");
     
          const [value, setValue] = useState(10);
       
@@ -19,11 +21,22 @@ const Quickupdate = () => {
         setIsSelected((prev) => !prev);
         
         };
-    
+
+        const [isClicked, setIsClicked] = useState('');
+        
+        const handleClick2 = (buttonId) => {
+            setIsClicked(buttonId); 
+        };
+
         const [selectedOption, setSelectedOption] = useState("bulk");
+    
+        const options = [
+            { id: "bulk", label: "Bulk Update" },
+            { id: "quick", label: "Quick Update" },
+        ];
 
   return (
-    <div className='w-full p-2'>
+    <div className='w-full px-1 py-2 sm:p-5'>
         <div className="flex gap-x-14 p-4 gap-y-10 flex-wrap items-start">       
             <div className="flex items-center flex-[1_1_150px] mr-14">
             <img src={logo} alt="logo" className="h-auto max-w-[193px]" />
@@ -76,72 +89,8 @@ const Quickupdate = () => {
             </div>   
         </div>
 
-        <div className='flex mx-auto justify-center p-2'>
-            <div>
-                <div className="mt-2 sm:mb-4">
-                    <h1 className="font-[600] text-[24px] leading-[28.8px]">Pricing Engine</h1>
-                    <p className="font-[400] text-[14px] leading-[20.3px] text-[#667185]">
-                    Capital pricing engine allows you to efficiently manage pricing strategies with bulk updates, quick adjustments, and real-time marketplace sync
-                    </p>
-                </div>
-
-                <div className=''>
-                    <h2 className="font-[600] text-[16px] leading-[23.2px] text-[#101928]">Update Method</h2>
-                    <p className="font-[400] text-[12px] leading-[16.8px] text-[#667185] mb-5">
-                    Choose between a bulk update for multiple products or a quick update for a single product to streamline your pricing adjustments with ease
-                    </p>
-
-                    <div className="flex gap-x-4">
-                        {/* Bulk Update */}
-                        <label 
-                            htmlFor="bulk" 
-                            className={`flex items-center gap-2 cursor-pointer rounded-lg border px-5 ${
-                                selectedOption === "bulk" ? "bg-gray-700 text-white" : "bg-white text-gray-700"
-                            }`}
-                            onClick={() => setSelectedOption("bulk")}
-                        >
-                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                <input 
-                                    type="radio" 
-                                    name="updateType" 
-                                    id="bulk" 
-                                    className="hidden peer"
-                                    checked={selectedOption === "bulk"} 
-                                    onChange={() => setSelectedOption("bulk")} 
-                                />
-                                <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                            </div>
-                            <span className="text-sm px-8">Bulk Update</span>
-                        </label>
-
-                        {/* Quick Update */}
-                        <label 
-                            htmlFor="quick" 
-                            className={`flex items-center gap-2 cursor-pointer p-[12px] px-12 rounded-lg border ${
-                                selectedOption === "quick" ? "bg-gray-700 text-white" : "bg-white text-gray-700"
-                            }`}
-                            onClick={() => setSelectedOption("quick")}
-                        >
-                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                <input 
-                                    type="radio" 
-                                    name="updateType" 
-                                    id="quick" 
-                                    className="hidden peer"
-                                    checked={selectedOption === "quick"} 
-                                    onChange={() => setSelectedOption("quick")}
-                                />
-                                <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                            </div>
-                            <span className="text-sm">Quick Update</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div className="mx-auto flex flex-col justify-center items-center p-2 px-5 sm:px-10 lg:px-40">
-            <div className="w-full">
+        <div className="mx-auto flex flex-col justify-center items-center p-2 lg:px-40">
+            <div className="">
                 <div className="flex py-5">
                     <button className="border-r border-[#344054] h-[23px] flex items-center pr-4">
                     <ChevronLeft className="w-[20px] h-[20px] text-[#344054]" />
@@ -171,29 +120,38 @@ const Quickupdate = () => {
                         Choose between a bulk update for multiple produts or a quick update for a single product to streamine your pricing adjustments with ease
                     </p>
 
-                    <div className="flex justify-center sm:justify-start gap-x-10">
-                        <label htmlFor="bulk" className="flex items-center gap-5 cursor-pointer rounded-lg bg-[#192231] py-2 px-6 pr-10">
-                            <div className="w-4 h-4 border-[1px] border-white rounded-full flex justify-center items-center">
-                            <input type="radio" name="bulk" id="bulk" className="hidden peer" />
-                            <div className="w-1.5 h-1.5 transparent peer-checked:bg-white rounded-full"></div>
+                    <div className="flex flex-wrap gap-5 w-full p-2">
+                        {options.map(({ id, label }) => (
+                            <div key={id} className="flex-[1_0_200px]">
+                                <label
+                                    htmlFor={id}
+                                    className={`flex items-center max-w-[254px] p-3 cursor-pointer rounded-lg border border-[#192231] 
+                                        ${selectedOption === id ? "bg-gray-700 text-white" : "bg-white text-gray-700"}`}
+                                    onClick={() => setSelectedOption(id)}
+                                >
+                                    <div className={`w-[20px] h-[20px] border-[4px] rounded-full flex items-center 
+                                        ${selectedOption === id ? "border-white" : "border-[#192231]"}`}>
+                                        <input 
+                                            type="radio" 
+                                            name="updateType" 
+                                            id={id} 
+                                            className="hidden peer"
+                                            checked={selectedOption === id} 
+                                            onChange={() => setSelectedOption(id)}
+                                        />
+                                        <div className="w-[6px] h-[6px] bg-transparent rounded-full"></div>
+                                    </div>
+                                    <span className="text-sm pl-5 min-w-fit">{label}</span>
+                                </label>
                             </div>
-                            <span className="text-white text-sm sm:text-lg ml-4"> Bulk Update</span>
-                        </label>
-
-                        <label htmlFor="quick" className="flex items-center gap-5 cursor-pointer py-2 px-6 pr-10 rounded-lg border border-[#192231]">
-                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                            <input type="radio" name="bulk" id="quick" className="hidden peer" />
-                            <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                            </div>
-                            <span className="text-[#192231] text-sm sm:text-lg ml-4">Quick Update</span>
-                        </label>
+                        ))}
                     </div>
                 </div>
             </div>
 
             <div className="flex flex-wrap w-full mt-10 sm:mt-14 gap-4">
-                <div className="w-full flex-[1_0_150px]">
-                    <div className="border p-[16px] rounded-lg">
+                <div className="w-full flex-[1_0_20px]">
+                    <div className="border p-2 sm:p-[16px] rounded-lg">
                         <div className="text-[#101928] pb-5 border-b">
                             <h1 className="font-[600]">Product pricing rule</h1>
                             <p className="font-[400] pb-5">Upload the .csv file containing your product data</p>
@@ -254,22 +212,40 @@ const Quickupdate = () => {
                                     <p>Choose whether to round up the selling price and specify rounding rules.</p>
                                 </div>
 
-                                <div className="flex gap-x-4">
-                                    <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                        <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                        <input type="radio" name="no-round" id="no-round" className="hidden peer" />
-                                        <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                                        </div>
-                                        <span className="text-[#192231] text-sm"> Do not round</span>
-                                    </label>
+                                <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
+                                    <div>
+                                        <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                <input
+                                                    type="radio"
+                                                    name="round-up"
+                                                    id="no-round"
+                                                    className="hidden peer"
+                                                    checked={selectedRound === "no-round"}
+                                                    onChange={() => setSelectedRound("no-round")}
+                                                />
+                                                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${selectedRound === "no-round" ? "bg-[#192231]" : "bg-transparent"}`}></div>
+                                            </div>
+                                            <span className="text-[#192231] text-sm">Do not round</span>
+                                        </label>
+                                    </div>
 
-                                    <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer p-[12px] px-12 rounded-lg">
-                                        <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                        <input type="radio" name="no-round" id="round-up" className="hidden peer" />
-                                        <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                                        </div>
-                                        <span className="text-[#192231] text-sm">Round up</span>
-                                    </label>
+                                    <div>
+                                        <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                <input
+                                                    type="radio"
+                                                    name="round-up"
+                                                    id="round-up"
+                                                    className="hidden peer"
+                                                    checked={selectedRound === "round-up"}
+                                                    onChange={() => setSelectedRound("round-up")}
+                                                />
+                                                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${selectedRound === "round-up" ? "bg-[#192231]" : "bg-transparent"}`}></div>
+                                            </div>
+                                            <span className="text-[#192231] text-sm">Round up</span>
+                                        </label>
+                                    </div>
                                 </div>
 
                                 <div className="relative w-full py-1 mt-10">
@@ -280,10 +256,9 @@ const Quickupdate = () => {
                         </div>
                     </div> 
                 </div>
-
-                <div className="w-full mt-10 lg:mt-0 flex-[1_0_100px]">
+                <div className="w-full mt-10 flex-[1_0_200px]">
                     <div >
-                        <div className="border p-[16px] rounded-lg">
+                        <div className="border p-1 rounded-lg">
                             <h1 className="text-[#101928] font-medium pb-5">
                                 <BookOpenText className="inline h-5 w-5"/>
                                 <span className="inline pl-2 font-[600] text-[16px] leading-[23.2px] text-[#101928]">Documentation</span>
@@ -303,15 +278,26 @@ const Quickupdate = () => {
                             </div>
                         </div>
 
-                        <div className="border rounded-lg mt-[45px] p-5 flex gap-x-4">
-                            <button type="submit" className="text-[#192231] px-4 py-2 rounded-lg transition w-[131px] border border-[#192231]">
+                        <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
+                                    
+                            <button
+                                type="button"
+                                id="cancel-btn"
+                                className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
+                                    isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                }`}
+                                onClick={() => handleClick2("cancel-btn")}
+                            >
                                 Cancel
                             </button>
 
-                            
-                            <button 
-                                to="/home2" 
-                                className="bg-[#192231] text-white px-4 py-2 rounded-lg transition w-[200px] flex justify-center items-center"
+                            <button
+                                type="button"
+                                id="start-btn"
+                                className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
+                                    isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                }`}
+                                onClick={() => handleClick2("start-btn")}
                             >
                                 Start bulk update
                             </button>

@@ -15,7 +15,7 @@ const Home = () => {
         };
 
   return (
-    <div className="w-full mx-auto justify-center flex">
+    <div className="w-full mx-auto justify-center flex p-2">
         <div className='w-full'>
             <div className="flex gap-x-14 p-4 gap-y-10 flex-wrap items-start">       
                 <div className="flex items-center flex-[1_1_150px] mr-14">
@@ -96,7 +96,7 @@ const Home = () => {
                     <div className='w-full border my-10'></div>
 
                     <div className='w-full mx-auto flex justify-center mb-10'>
-                        <div className='max-w-[795px] border p-[2px] rounded-lg w-full'>
+                        <div className='max-w-[795px] border p-2 rounded-lg w-full'>
                             <div className="flex flex-col gap-2 lg:flex-row justify-between w-full">
                                 <div className="flex-1 flex-col w-full gap-2 justify-start mr-auto">
                                     <div className="text-[16px] font-[600] leading-[23.2px] text-[#101928] flex items-center p-2">
@@ -118,7 +118,7 @@ const Home = () => {
                                 </div>     
                             </div>
 
-                            <div className='border border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col w-full'>
+                            <div className='border p-2 border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col w-full'>
                                 <div className='relative w-full flex justify-between border-b-2 py-2'>
                                     <p >                                
                                         <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">

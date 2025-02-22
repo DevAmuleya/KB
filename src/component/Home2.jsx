@@ -129,76 +129,83 @@ const Home2 = () => {
                 
                 <div className='border mx-auto hidden sm:block w-full my-10'></div>
 
-                <div className='border rounded-lg p-2 sm:p-5 w-full  sm:mt-16'>                    
-                    <div className="flex justify-between w-full gap-2">
-                        {/* Left Section */}
-                        <div className="flex flex-col ">
-                            <div className="text-[16px] font-[600] leading-[23.2px] text-[#101928] flex items-center p-2">
-                                <UserRoundCheck className="w-[20px] h-[20px]" />
-                                <p className="px-2">Admins</p>
+                <div className='w-full mx-auto flex justify-center mb-10'>
+                    <div className='max-w-[795px] border p-2 rounded-lg w-full'>
+                        <div className="flex flex-col gap-2 lg:flex-row justify-between w-full">
+                            <div className="flex-1 flex-col w-full gap-2 justify-start mr-auto">
+                                <div className="text-[16px] font-[600] leading-[23.2px] text-[#101928] flex items-center p-2">
+                                    <UserRoundCheck className="w-[20px] h-[20px]" />
+                                    <p className="px-2">Admins</p>
+                                </div>
+                                <p className="text-sm text-[#101928]">
+                                    Admins have full access to the pricing engine and can effect changes.
+                                </p>
                             </div>
-                            <p className="text-sm text-[#101928]">
-                                Admins have full access to the pricing engine and can effect changes.
-                            </p>
+
+                            <div className='flex-1 w-full'>
+                                <div className='flex lg:justify-end mr-4'>
+                                    <button onClick={handleClick} className="border rounded-lg w-[125px] h-10 mt-2 sm:mt-0 px-[12px] py-[8px] font-[600] leading-[20.3px] text-sm border-[#5E758C] flex items-center hover:scale-105">
+                                        <Plus className="h-[20px] w-[20px]" />
+                                        <span>Add admin</span>
+                                    </button>
+                                </div>
+                            </div>     
                         </div>
 
-                        {/* Right Section */}
-                        <div className=' w-[8rem]'>
-                            <button onClick={handleClick} className="border rounded-lg w-full p-2 sm:mt-0 sm:h-auto font-[600] leading-[20.3px] text-sm border-[#5E758C] flex items-center hover:scale-105">
-                                <Plus className="h-[20px] w-[20px]" />
-                                <span>Add admin</span>
-                            </button>
-                        </div>    
-                    </div>
-
-                    <div className='w-full h-[276px] border border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col'>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 h-[52px]">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
-                                    Jerome Bell
-                                </span>
-                                nathan.roberts@example.com &nbsp;&nbsp;  
-                                <span className="bg-[#D0D5DD] px-2 py-1 rounded-full text-[#344054] text-sm mb-1 sm:mb-0 inline-block hover:bg-red-400 transition-all">
-                                    Invitation pending
-                                </span>
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 h-[52px]">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
-                                    Floyd Miles
-                                </span>
-                                bill.sanders@example.com
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 h-[52px]">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
-                                    Wade Warren
-                                </span>
-                                alma.lawson@example.com 
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <p className="flex justify-between items-center gap-x-3 font-normal text-[#475367] border-b-2 h-[52px]">
-                            <span>
-                                <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 p-[16px]">
-                                    Bessie
-                                </span>
-                                georgia.young@example.com 
-                            </span>
-                            <span className='pr-[16px]'><UserMinus className='inline'/></span>
-                        </p>
-                        <div className='flex my-auto px-[16px]'>
-                            <div className='h-[36px] w-[124px] flex items-center gap-x-2'>
-                                <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg'><ChevronLeft className='w-[30px] h-[30px] text-[#344054]'/></div>
-                                <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg font-[400] leading-[20.3px] text-[#000000] text-2xl'>1</div>
-                                <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg'><ChevronRight className='w-[30px] h-[30px] text-[#344054]'/></div>
+                        <div className='border p-2 border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col w-full'>
+                            <div className='relative w-full flex justify-between border-b-2 py-2'>
+                                <p >                                
+                                    <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
+                                        Jerome Bell
+                                    </span>
+                                    nathan.roberts@example.com &nbsp;&nbsp;  
+                                    <span className="bg-[#D0D5DD] px-2 py-1 rounded-full text-[#344054] text-sm mb-1 sm:mb-0 inline-block hover:bg-red-400 transition-all">
+                                        Invitation pending
+                                    </span>                                 
+                                </p>
+                                <div><UserMinus className='h-[24px]' /></div>
                             </div>
-                        </div>    
-                    </div>                  
+
+                            <div className='relative w-full flex justify-between border-b-2 py-2'>
+                                <p >                                
+                                    <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
+                                        Floyd Miles
+                                    </span>
+                                    bill.sanders@example.com                  
+                                </p>
+                                <div><UserMinus className='h-[24px]' /></div>
+                            </div>
+
+                            <div className='relative w-full flex justify-between border-b-2 py-2'>
+                                <p >                                
+                                    <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
+                                        Wade Warren
+                                    </span>
+                                    alma.lawson@example.com                  
+                                </p>
+                                <div><UserMinus className='h-[24px]' /></div>
+                            </div>
+
+                            <div className='relative w-full flex justify-between border-b-2 py-2'>
+                                <p >                                
+                                    <span className="font-semibold text-[14px] leading-[20.3px] text-[#344054] pr-2 ">
+                                        Bessie
+                                    </span>
+                                    georgia.young@example.com                 
+                                </p>
+                                <div><UserMinus className='h-[24px]' /></div>
+                            </div>
+
+
+                            <div className='flex my-auto px-[16px] py-4'>
+                                <div className='h-[36px] w-[124px] flex items-center gap-x-2'>
+                                    <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg'><ChevronLeft className='w-[30px] h-[30px] text-[#344054]'/></div>
+                                    <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg font-[400] leading-[20.3px] text-[#000000] text-2xl'>1</div>
+                                    <div className='h-[36px] w-[36px] flex justify-center items-center bg-white border rounded-lg'><ChevronRight className='w-[30px] h-[30px] text-[#344054]'/></div>
+                                </div>
+                            </div>   
+                        </div> 
+                    </div>
                 </div>
 
                 <div className="flex w-full my-12 ">
