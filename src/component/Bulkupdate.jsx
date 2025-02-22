@@ -197,25 +197,30 @@ const Bulkupdate = () => {
                                     <p>Choose whether to round up the selling price and specify rounding rules.</p>
                                 </div>   
 
-                                <div className="flex gap-2">
-                                    <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                        <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                        <input type="radio" name="round-up" id="no-round" className="hidden peer" />
-                                        <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                                        </div>
-                                        <span className="text-[#192231] text-sm"> Do not round</span>
-                                    </label>
+                                <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
+                                    <div>
+                                        <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
+                                            <input type="radio" name="round-up" id="no-round" className="hidden peer" />
+                                            <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
+                                            </div>
+                                            <span className="text-[#192231] text-sm"> Do not round</span>
+                                        </label>
+                                    </div>
                                     
-                                    <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer p-[12px] px-12 rounded-lg">
-                                        <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                        <input type="radio" name="round-up" id="round-up" className="hidden peer" />
-                                        <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
-                                        </div>
-                                        <span className="text-[#192231] text-sm">Round up</span>
-                                    </label>   
+                                    <div>
+                                        <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
+                                            <input type="radio" name="round-up" id="round-up" className="hidden peer" />
+                                            <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
+                                            </div>
+                                            <span className="text-[#192231] text-sm">Round up</span>
+                                        </label> 
+                                    </div> 
+
                                 </div>
 
-                                <div className="relative w-full mt-10">
+                                <div className="relative w-full mt-5">
                                     <input type="text" name="Round up to" id="round up to" placeholder=".99" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
                                     <label htmlFor="round up" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Round up to:</label>
                                 </div>
@@ -308,10 +313,10 @@ const Bulkupdate = () => {
                                     </div>
                                 </div> 
 
-                                <div className="border rounded-lg mt-[45px] py-5 px-10 flex gap-x-8">
+                                <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
                                     <button
                                         type="button"
-                                        className={`px-4 py-2 rounded-lg transition w-[131px] border border-[#192231] ${
+                                        className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
                                             isClicked === "cancel" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
                                         onClick={() => handleClick2("cancel")}
@@ -321,7 +326,7 @@ const Bulkupdate = () => {
 
                                     <button
                                         type="button"
-                                        className={`py-2 rounded-lg transition w-[150px] border border-[#192231] ${
+                                        className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
                                             isClicked === "start" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
                                         onClick={() => handleClick2("start")}
