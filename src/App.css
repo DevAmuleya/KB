@@ -9,6 +9,8 @@
 .tableStyle {
   width: 100%;
   overflow-x: auto;
+  background-color: white; 
+  border-radius: 10px;
 }
 
 .table {
@@ -18,7 +20,6 @@
 }
   
 .table th {
-  background-color: #e5e7eb; /* Light gray header */
   border: 1px solid #d1d5db;
   text-align: left;
 }
