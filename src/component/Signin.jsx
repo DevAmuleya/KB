@@ -6,8 +6,8 @@ const Signin = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (
-    <div className='mx-auto flex justify-center items-center min-h-screen '>
-       <div className='border max-w-[456px] p-[10px] rounded-lg'>
+    <div className='mx-auto flex justify-center items-center min-h-screen p-2'>
+       <div className='border max-w-[456px] py-[10px] rounded-lg p-2'>
             <div className='flex flex-col w-full h-full p-[2px] lg:p-[5px]'>
                 <div className='flex flex-col items-center text-center p-2'>
                     <h1 className='sm:text-3xl text-xl text-bgColor mb-5'>Sign in</h1>
