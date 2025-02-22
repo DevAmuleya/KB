@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
 import {  Search, ChevronRight, ChevronsUpDown, ChevronLeft, House, Upload, BookOpenText } from "lucide-react";
 
@@ -31,6 +32,8 @@ const Bulkupdate = () => {
         { id: "bulk", label: "Bulk Update" },
         { id: "quick", label: "Quick Update" },
     ];
+
+    const [selectedRound, setSelectedRound] = useState("");
 
     return (
         <div className='w-full p-2'>
@@ -165,8 +168,8 @@ const Bulkupdate = () => {
                                 </div>
 
                                 <div className="relative w-full h-[60px] py-5">
-                                    <input type="text" name="Category" id="Category" placeholder="e.g categoryTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                    <label htmlFor="Category" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Category (optional)</label>
+                                    <input type="text" name="Category2" id="Category2" placeholder="e.g categoryTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                    <label htmlFor="Category2" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Category (optional)</label>
                                 </div>
 
                                 <div className="pt-1 pb-10">
@@ -200,24 +203,37 @@ const Bulkupdate = () => {
                                 <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
                                     <div>
                                         <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                            <input type="radio" name="round-up" id="no-round" className="hidden peer" />
-                                            <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
+                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                <input
+                                                    type="radio"
+                                                    name="round-up"
+                                                    id="no-round"
+                                                    className="hidden peer"
+                                                    checked={selectedRound === "no-round"}
+                                                    onChange={() => setSelectedRound("no-round")}
+                                                />
+                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
                                             </div>
-                                            <span className="text-[#192231] text-sm"> Do not round</span>
+                                            <span className="text-[#192231] text-sm">Do not round</span>
                                         </label>
                                     </div>
-                                    
+
                                     <div>
                                         <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                            <div className="w-4 h-4 border-[1px] border-[#192231] rounded-full flex justify-center items-center">
-                                            <input type="radio" name="round-up" id="round-up" className="hidden peer" />
-                                            <div className="w-1.5 h-1.5 bg-transparent peer-checked:bg-[#192231] rounded-full"></div>
+                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                <input
+                                                    type="radio"
+                                                    name="round-up"
+                                                    id="round-up"
+                                                    className="hidden peer"
+                                                    checked={selectedRound === "round-up"}
+                                                    onChange={() => setSelectedRound("round-up")}
+                                                />
+                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
                                             </div>
                                             <span className="text-[#192231] text-sm">Round up</span>
-                                        </label> 
-                                    </div> 
-
+                                        </label>
+                                    </div>
                                 </div>
 
                                 <div className="relative w-full mt-5">
@@ -326,7 +342,7 @@ const Bulkupdate = () => {
                                         Cancel
                                     </button>
 
-                                    <button
+                                    <Link to="/quickupdate"
                                         type="button"
                                         id="start-btn"
                                         className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
@@ -335,7 +351,7 @@ const Bulkupdate = () => {
                                         onClick={() => handleClick2("start-btn")}
                                     >
                                         Start bulk update
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

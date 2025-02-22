@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
-import { Search, Plus, X, UserMinus, ChevronLeft, UserRoundCheck, Laptop, ChevronRight, Rocket, ChevronsUpDown } from 'lucide-react';
+import { Search, Plus, UserMinus, ChevronLeft, UserRoundCheck, Laptop, ChevronRight, Rocket, ChevronsUpDown } from 'lucide-react';
 
 const Home = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
     const [isNavOpen, setIsNavOpen] = useState(false);
-    
-    const [email, setEmail] = useState("");
 
     const handleClick = () => {
         setIsNavOpen((prev) => !prev);
@@ -84,11 +83,13 @@ const Home = () => {
                                 </h2>
                             </div>
                             <div className="mt-3" >
-                                <button 
-                                    className="p-3 w-[261px] border bg-[#192231] text-white rounded-lg flex items-center justify-center gap-2"
-                                >
-                                    <Rocket className="h-5" /> Launch Pricing Engine
-                                </button>
+                                <Link to="/bulkupdate" >
+                                    <button 
+                                        className="p-3 w-[261px] border bg-[#192231] text-white rounded-lg flex items-center justify-center gap-2"
+                                    >
+                                        <Rocket className="h-5" /> Launch Pricing Engine
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
-import {  Search, ChevronRight, ChevronsUpDown, ChevronLeft, House, Upload, BookOpenText } from "lucide-react";
+import {  Search, ChevronsUpDown, ChevronLeft, House, Upload, BookOpenText } from "lucide-react";
 
 const Quickupdate = () => {
 
        const [isOpen, setIsOpen] = useState(false);
 
-       const [selectedRound, setSelectedRound] = useState("");
-    
-         const [value, setValue] = useState(10);
-      
-        // Function to update value
-        const handleChange = (event) => {
-            setValue(event.target.value);
-        };
-    
-        const [isSelected, setIsSelected] = useState(false);
-    
-        const handleClick = () => {
-        setIsSelected((prev) => !prev);
-        
-        };
+       const [selectedRound2, setSelectedRound2] = useState(null);
 
         const [isClicked, setIsClicked] = useState('');
         
@@ -214,34 +201,34 @@ const Quickupdate = () => {
 
                                 <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
                                     <div>
-                                        <label htmlFor="no-round" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                        <label htmlFor="no-round2" className="flex items-center gap-2 cursor-pointer rounded-lg">
                                             <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
                                                 <input
                                                     type="radio"
-                                                    name="round-up"
-                                                    id="no-round"
+                                                    name="round-up2"
+                                                    id="no-round2"
                                                     className="hidden peer"
-                                                    checked={selectedRound === "no-round"}
-                                                    onChange={() => setSelectedRound("no-round")}
+                                                    checked={selectedRound2 === "no-round2"}
+                                                    onChange={() => setSelectedRound2("no-round2")}
                                                 />
-                                                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${selectedRound === "no-round" ? "bg-[#192231]" : "bg-transparent"}`}></div>
+                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
                                             </div>
                                             <span className="text-[#192231] text-sm">Do not round</span>
                                         </label>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="round-up" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                        <label htmlFor="round-up2" className="flex items-center gap-2 cursor-pointer rounded-lg">
                                             <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
                                                 <input
                                                     type="radio"
-                                                    name="round-up"
-                                                    id="round-up"
+                                                    name="round-up2"
+                                                    id="round-up2"
                                                     className="hidden peer"
-                                                    checked={selectedRound === "round-up"}
-                                                    onChange={() => setSelectedRound("round-up")}
+                                                    checked={selectedRound2 === "round-up2"}
+                                                    onChange={() => setSelectedRound2("round-up2")}
                                                 />
-                                                <div className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${selectedRound === "round-up" ? "bg-[#192231]" : "bg-transparent"}`}></div>
+                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
                                             </div>
                                             <span className="text-[#192231] text-sm">Round up</span>
                                         </label>
@@ -291,7 +278,7 @@ const Quickupdate = () => {
                                 Cancel
                             </button>
 
-                            <button
+                            <Link to="/home2"
                                 type="button"
                                 id="start-btn"
                                 className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
@@ -300,7 +287,7 @@ const Quickupdate = () => {
                                 onClick={() => handleClick2("start-btn")}
                             >
                                 Start bulk update
-                            </button>
+                            </Link>
                         </div>
 
                     </div> 

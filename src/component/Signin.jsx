@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import { Mail, EyeOff, Eye } from "lucide-react";
 
 const Signin = () => {
@@ -44,10 +45,11 @@ const Signin = () => {
                     <a href="#" className="text-sm text-gray-600 hover:underline">Forgot password</a>
                   </div>
 
-                  <button className='w-full bg-gray-950 text-white border rounded-lg p-3'>
-                      Sign in
-                  </button>
-
+                  <Link to="/home">
+                    <button className='w-full bg-gray-950 text-white border rounded-lg p-3'>
+                        Sign in
+                    </button>
+                  </Link>
                 </div>
 
             </div>
