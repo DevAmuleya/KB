@@ -13,25 +13,24 @@ const Bulkupdate = () => {
         setValue(event.target.value);
     };
 
-    const [isSelected, setIsSelected] = useState(false);
-
-    const handleClick = () => {
-    setIsSelected((prev) => !prev);
-    
-    };
-
     const [isClicked, setIsClicked] = useState(null);
 
     const handleClick2 = (buttonId) => {
         setIsClicked(buttonId); 
     };
 
-    const [selectedOption, setSelectedOption] = useState("bulk");
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [isSelected, setIsSelected] = useState(false);
 
     const options = [
         { id: "bulk", label: "Bulk Update" },
-        { id: "quick", label: "Quick Update" },
+        { id: "quick", label: "Quick Update", path: "/quickupdate" },
     ];
+
+    const handleOptionChange = (id) => {
+        setSelectedOption(id);
+        setIsSelected(id === "bulk"); // ✅ Only set `isSelected` when "bulk" is chosen
+    };
 
     const [selectedRound, setSelectedRound] = useState("");
 
@@ -105,16 +104,20 @@ const Bulkupdate = () => {
                         </p>
 
                         <div className="flex flex-wrap gap-5 w-full p-2">
-                            {options.map(({ id, label }) => (
+                            {options.map(({ id, label, path }) => (
                                 <div key={id} className="flex-[1_0_200px]">
                                     <label
                                         htmlFor={id}
                                         className={`flex items-center max-w-[254px] p-3 cursor-pointer rounded-lg border border-[#192231] 
                                             ${selectedOption === id ? "bg-gray-700 text-white" : "bg-white text-gray-700"}`}
-                                        onClick={() => setSelectedOption(id)}
+                                        onClick={() => {
+                                            setSelectedOption(id);
+                                            setIsSelected(id === "bulk");
+                                        }}
                                     >
-                                        <div className={`w-[20px] h-[20px] border-[4px] rounded-full flex items-center 
+                                        <div className={`w-[20px] h-[20px] border-2 rounded-full flex items-center justify-center
                                             ${selectedOption === id ? "border-white" : "border-[#192231]"}`}>
+                                            
                                             <input 
                                                 type="radio" 
                                                 name="updateType" 
@@ -125,7 +128,15 @@ const Bulkupdate = () => {
                                             />
                                             <div className="w-[6px] h-[6px] bg-transparent rounded-full"></div>
                                         </div>
-                                        <span className="text-sm pl-5 min-w-fit">{label}</span>
+
+                                        {path ? (
+                                            // ✅ Wrap "Quick Update" in a <Link> to navigate
+                                            <Link to={path} className="text-sm pl-5 min-w-fit">
+                                                {label}
+                                            </Link>
+                                        ) : (
+                                            <span className="text-sm pl-5 min-w-fit">{label}</span>
+                                        )}
                                     </label>
                                 </div>
                             ))}
@@ -246,9 +257,9 @@ const Bulkupdate = () => {
                         <div className=' w-full flex-[1_0_150px]'>
                             <div>                              
                                 <div className=" w-full">
-                                    <div className={`${isSelected ? "flex" : "hidden"} p-2 border rounded-lg my-5 w-full`}>
+                                    <div className={`${isSelected ? "block" : "hidden"} p-2 border rounded-lg my-5 w-full`}>
                                         <h1>Updating Pricing rule...</h1>
-                                        <div className="w-full flex justify-between items-center">
+                                        <div className="w-full flex justify-between items-center my-3">
                                             <div className='flex w-full'>
                                                 <input 
                                                     id="search-input"
@@ -268,9 +279,12 @@ const Bulkupdate = () => {
                                                 <ChevronRight className=" w-14 top-1 right-0 text-gray-500" />
                                             </div>
                                         </div>
-                                        <p>
-                                            {`${value}% of the complete `}
-                                        </p>
+                                        <div>
+                                            <p>
+                                                {`${value}% of the complete `}
+                                            </p>
+                                        </div>
+                                        
                                         
                                     </div> 
                                                     

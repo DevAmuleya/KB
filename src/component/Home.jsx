@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
-import { Search, Plus, UserMinus, ChevronLeft, UserRoundCheck, Laptop, ChevronRight, Rocket, ChevronsUpDown } from 'lucide-react';
+import { Search, Plus, X, UserMinus, ChevronLeft, UserRoundCheck, Laptop, ChevronRight, Rocket, ChevronsUpDown } from 'lucide-react';
 
 const Home = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [email, setEmail] = useState("");
 
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -117,6 +118,54 @@ const Home = () => {
                                         </button>
                                     </div>
                                 </div>     
+                            </div>
+
+                            <div className=" flex justify-center">
+
+                                {/* Modal */}
+                                {isNavOpen && (
+                                    <div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 backdrop-blur-[2px] z-50 px-2">
+                                        <div className="p-2 w-full max-w-[600px]">
+                                            <div className="bg-white border rounded-lg shadow-lg w-full flex flex-col items-center p-4">
+                                                {/* Header */}
+                                                <div className="flex items-start justify-between w-full mb-4">
+                                                    <div>
+                                                        <h1 className="text-xl font-black sm:text-2xl">Add Admin</h1>
+                                                        <p className="text-sm text-gray-600">Invite other admins to the pricing engine</p>
+                                                    </div>
+
+                                                    {/* Close Button */}
+                                                    <button 
+                                                        className="text-gray-700 hover:text-red-600 hover:scale-110 transition-all"
+                                                        onClick={handleClick}
+                                                    >
+                                                        <X size={24} />
+                                                    </button>
+                                                </div>
+
+                                                {/* Modal Body */}
+                                                <div className="flex flex-col sm:flex-row gap-3 w-full">
+                                                    {/* Email Input */}
+                                                    <input 
+                                                        type="email" 
+                                                        placeholder="Enter email to invite" 
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        className="border px-3 py-2 rounded-lg focus:outline-none w-full"
+                                                    />
+
+                                                    {/* Invite Button */}
+                                                    <button 
+                                                        className="w-full sm:w-auto bg-[#192231] text-white px-4 py-2 rounded-lg hover:bg-[#101928] transition-all"
+                                                        onClick={() => alert(`Invitation sent to: ${email}`)}
+                                                    >
+                                                        Invite
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             <div className='border p-2 border-[#E4E7EC] rounded-lg bg-[#F6F6F6] mt-8 flex flex-col w-full'>

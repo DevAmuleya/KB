@@ -72,8 +72,8 @@ const Home2 = () => {
         </div>
             
         <div className='mx-auto flex justify-center'> 
-            <div className='w-full'>            
-                <div className="flex flex-col w-full mt-5 max-w-[795px]">
+            <div className='w-full max-w-[795px] mx-auto'>            
+                <div className="flex flex-col mx-auto mt-5 max-w-[900px]">
                     <div className="mb-4 w-full">
                         <h1 className="font-semibold text-[24px] text-[#000000] pb-1">
                             Welcome Admin
@@ -90,9 +90,9 @@ const Home2 = () => {
                     </div>
                 </div>
 
-                <div className='border mx-auto hidden sm:block mt-10 my-5 w-full'></div>
+                <div className='border max-w-[900px]  hidden sm:block mt-10 my-5 w-full'></div>
 
-                <div className="p-5 border rounded-lg my-10 sm:mt-14 ">
+                <div className="p-5 max-w-[795px] mx-auto border rounded-lg my-10 sm:mt-14 ">
                     <div className='mb-4'>
                         <h1>In Queue</h1>
                         <p>View pricing updates that are in queue</p>
@@ -208,7 +208,7 @@ const Home2 = () => {
                     </div>
                 </div>
 
-                <div className="flex w-full my-12 ">
+                <div className="flex w-full my-12 max-w-[795px] mx-auto ">
                     <div className="w-full border p-2 sm:p-10 border-[#C8D1DA] rounded-lg">
                         <div className="">
                             {/* Header */}

@@ -135,164 +135,167 @@ const Quickupdate = () => {
                     </div>
                 </div>
             </div>
+            
+            <div className='mx-auto max-w-[850px] flex justify-center'>
+                <div className="flex flex-wrap flex-col sm:flex-row mt-10 sm:mt-14 gap-4">
+                    <div className="w-full flex-[1_0_150px]">
+                        <div className="border p-2 sm:p-[16px] rounded-lg">
+                            <div className="text-[#101928] pb-5 border-b">
+                                <h1 className="font-[600]">Product pricing rule</h1>
+                                <p className="font-[400] pb-5">Upload the .csv file containing your product data</p>
+                                <label className="flex items-center gap-2 px-4 py-2 text-[#101928] rounded-lg cursor-pointer border border-[#101928] w-[150px]">
+                                    <Upload className="w-5 h-5" />
+                                    <span>Upload File</span>
+                                    <input type="file" className="hidden" />
+                                </label>
+                            </div>
 
-            <div className="flex flex-wrap w-full mt-10 sm:mt-14 gap-4">
-                <div className="w-full flex-[1_0_20px]">
-                    <div className="border p-2 sm:p-[16px] rounded-lg">
-                        <div className="text-[#101928] pb-5 border-b">
-                            <h1 className="font-[600]">Product pricing rule</h1>
-                            <p className="font-[400] pb-5">Upload the .csv file containing your product data</p>
-                            <label className="flex items-center gap-2 px-4 py-2 text-[#101928] rounded-lg cursor-pointer border border-[#101928] w-[150px]">
-                                <Upload className="w-5 h-5" />
-                                <span>Upload File</span>
-                                <input type="file" className="hidden" />
-                            </label>
-                        </div>
+                            <div className="border-b py-5 ">
+                                <p>Product details</p>
+                                <p className="mb-10">Provide the header title for the product line you want to update</p>
 
-                        <div className="border-b py-5 ">
-                            <p>Product details</p>
-                            <p className="mb-10">Provide the header title for the product line you want to update</p>
+                                <div className="flex gap-x-4 mb-4">
+                                    <div className="relative flex-1 py-2">
+                                        <input type="text" name="Brand ID" id="Brand ID" placeholder="e.g Brand ID" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                        <label htmlFor="Brand ID" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Brand ID</label>
+                                    </div>
 
-                            <div className="flex gap-x-4 mb-4">
-                                <div className="relative flex-1 py-2">
-                                    <input type="text" name="Brand ID" id="Brand ID" placeholder="e.g Brand ID" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                    <label htmlFor="Brand ID" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Brand ID</label>
+                                    <div className="relative flex-1 py-2">
+                                        <input type="text" name="PartTypeName" id="PartTypeName" placeholder="e.g PartTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                        <label htmlFor="PartTypeName" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">PartTypeName</label>
+                                    </div>
                                 </div>
 
-                                <div className="relative flex-1 py-2">
-                                    <input type="text" name="PartTypeName" id="PartTypeName" placeholder="e.g PartTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                    <label htmlFor="PartTypeName" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">PartTypeName</label>
+                                <div className="relative w-full py-5">
+                                    <input type="text" name="Category" id="Category" placeholder="e.g categoryTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                    <label htmlFor="Brand ID" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Category (optional)</label>
+                                </div>
+
+                                <div className="relative w-full  ">
+                                    <p className="py-2">price range</p>
+
+                                    <div className="grid lg:grid-cols-3 gap-4 pt-1 pb-10">
+                                        <div className="pl-10 flex relative">
+                                            <input type="text" name="From" id="From" placeholder="e.g From" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                            <label htmlFor="From" className="absolute left-[-2px] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">From</label>
+                                        </div>
+
+                                        <div className="pl-5 flex relative">
+                                            <input type="text" name="To" id="To" placeholder="e.g To" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                            <label htmlFor="To" className="absolute left-[0] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">To</label>
+                                        </div>
+
+                                        <div className="pl-[80px] flex relative">
+                                            <input type="text" name="Set margin" id="Set margin" placeholder="e.g Margin" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                            <label htmlFor="Set margin" className="absolute left-[-1px] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">:set margin</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="relative w-full py-5">
-                                <input type="text" name="Category" id="Category" placeholder="e.g categoryTypeName" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                <label htmlFor="Brand ID" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Category (optional)</label>
-                            </div>
-
-                            <div className="relative w-full  ">
-                                <p className="py-2">price range</p>
-
-                                <div className="grid lg:grid-cols-3 gap-4 pt-1 pb-10">
-                                    <div className="pl-10 flex relative">
-                                        <input type="text" name="From" id="From" placeholder="e.g From" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                        <label htmlFor="From" className="absolute left-[-2px] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">From</label>
-                                    </div>
-
-                                    <div className="pl-5 flex relative">
-                                        <input type="text" name="To" id="To" placeholder="e.g To" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                        <label htmlFor="To" className="absolute left-[0] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">To</label>
-                                    </div>
-
-                                    <div className="pl-[80px] flex relative">
-                                        <input type="text" name="Set margin" id="Set margin" placeholder="e.g Margin" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                        <label htmlFor="Set margin" className="absolute left-[-1px] text-[#344054] text-[14px] font-[500] leading-[20.3px] translate-y-[5px]">:set margin</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
                             <div>
-                                <div className="mt-5">
-                                    <h1 className="font-[600] text-md leading-[23.2px] text-[#101928]">Round up options</h1>
-                                    <p>Choose whether to round up the selling price and specify rounding rules.</p>
-                                </div>
-
-                                <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
-                                    <div>
-                                        <label htmlFor="no-round2" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="round-up2"
-                                                    id="no-round2"
-                                                    className="hidden peer"
-                                                    checked={selectedRound2 === "no-round2"}
-                                                    onChange={() => setSelectedRound2("no-round2")}
-                                                />
-                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
-                                            </div>
-                                            <span className="text-[#192231] text-sm">Do not round</span>
-                                        </label>
+                                <div>
+                                    <div className="mt-5">
+                                        <h1 className="font-[600] text-md leading-[23.2px] text-[#101928]">Round up options</h1>
+                                        <p>Choose whether to round up the selling price and specify rounding rules.</p>
                                     </div>
 
-                                    <div>
-                                        <label htmlFor="round-up2" className="flex items-center gap-2 cursor-pointer rounded-lg">
-                                            <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
-                                                <input
-                                                    type="radio"
-                                                    name="round-up2"
-                                                    id="round-up2"
-                                                    className="hidden peer"
-                                                    checked={selectedRound2 === "round-up2"}
-                                                    onChange={() => setSelectedRound2("round-up2")}
-                                                />
-                                                <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
-                                            </div>
-                                            <span className="text-[#192231] text-sm">Round up</span>
-                                        </label>
+                                    <div className="flex gap-x-10 gap-y-2 flex-wrap py-3">
+                                        <div>
+                                            <label htmlFor="no-round2" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                                <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                    <input
+                                                        type="radio"
+                                                        name="round-up2"
+                                                        id="no-round2"
+                                                        className="hidden peer"
+                                                        checked={selectedRound2 === "no-round2"}
+                                                        onChange={() => setSelectedRound2("no-round2")}
+                                                    />
+                                                    <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
+                                                </div>
+                                                <span className="text-[#192231] text-sm">Do not round</span>
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <label htmlFor="round-up2" className="flex items-center gap-2 cursor-pointer rounded-lg">
+                                                <div className="w-4 h-4 border border-[#192231] rounded-full flex justify-center items-center">
+                                                    <input
+                                                        type="radio"
+                                                        name="round-up2"
+                                                        id="round-up2"
+                                                        className="hidden peer"
+                                                        checked={selectedRound2 === "round-up2"}
+                                                        onChange={() => setSelectedRound2("round-up2")}
+                                                    />
+                                                    <div className="w-1.5 h-1.5 bg-transparent rounded-full peer-checked:bg-[#192231]"></div>
+                                                </div>
+                                                <span className="text-[#192231] text-sm">Round up</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative w-full py-1 mt-10">
+                                        <input type="text" name="Round up to" id="round up to" placeholder=".99" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
+                                        <label htmlFor="Round up to" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Round up to:</label>
                                     </div>
                                 </div>
+                            </div>
+                        </div> 
+                    </div>
 
-                                <div className="relative w-full py-1 mt-10">
-                                    <input type="text" name="Round up to" id="round up to" placeholder=".99" className="border w-full px-2 py-1 rounded-lg italic font-[400] text-[#98A2B3] text-[14px]" />
-                                    <label htmlFor="Round up to" className="absolute left-0 translate-y-[-25px] text-[#344054] text-[14px] font-[500] leading-[20.3px]">Round up to:</label>
+                    <div className="w-full mt-10 flex-[1_0_150px]">
+                        <div className='w-full'>
+                            <div className="border p-1 rounded-lg">
+                                <h1 className="text-[#101928] font-medium pb-5">
+                                    <BookOpenText className="inline h-5 w-5"/>
+                                    <span className="inline pl-2 font-[600] text-[16px] leading-[23.2px] text-[#101928]">Documentation</span>
+                                </h1>
+
+                                <div className="w-full bg-[#F6F6F6] border-[#E4E7EC] border rounded-lg p-[16px] font-[500] text-[14px] leading-[20.3px] text-black">
+                                    <div className="mb-2 font-bold">
+                                        <p>BrandID JTWM</p>
+                                        <p>Part Type = Tire</p>
+                                    </div>
+
+                                    <div className="mb-2 font-light">
+                                        <p>Cost from 0-50$ = 50% GP (COST/.5)</p>
+                                        <p>Cost from 50-99.99$ = 47.5% GP (COST/.525)</p>
+                                        <p>Cost from 100-199.99$ = 45% GP (COST/.55)</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> 
-                </div>
-                <div className="w-full mt-10 flex-[1_0_200px]">
-                    <div >
-                        <div className="border p-1 rounded-lg">
-                            <h1 className="text-[#101928] font-medium pb-5">
-                                <BookOpenText className="inline h-5 w-5"/>
-                                <span className="inline pl-2 font-[600] text-[16px] leading-[23.2px] text-[#101928]">Documentation</span>
-                            </h1>
 
-                            <div className="w-full bg-[#F6F6F6] border-[#E4E7EC] border rounded-lg p-[16px] font-[500] text-[14px] leading-[20.3px] text-black">
-                                <div className="mb-2 font-bold">
-                                    <p>BrandID JTWM</p>
-                                    <p>Part Type = Tire</p>
-                                </div>
+                            <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
+                                        
+                                <button
+                                    type="button"
+                                    id="cancel-btn"
+                                    className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
+                                        isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                    }`}
+                                    onClick={() => handleClick2("cancel-btn")}
+                                >
+                                    Cancel
+                                </button>
 
-                                <div className="mb-2 font-light">
-                                    <p>Cost from 0-50$ = 50% GP (COST/.5)</p>
-                                    <p>Cost from 50-99.99$ = 47.5% GP (COST/.525)</p>
-                                    <p>Cost from 100-199.99$ = 45% GP (COST/.55)</p>
-                                </div>
+                                <Link to="/home2"
+                                    type="button"
+                                    id="start-btn"
+                                    className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
+                                        isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
+                                    }`}
+                                    onClick={() => handleClick2("start-btn")}
+                                >
+                                    Start bulk update
+                                </Link>
                             </div>
-                        </div>
 
-                        <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
-                                    
-                            <button
-                                type="button"
-                                id="cancel-btn"
-                                className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
-                                    isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
-                                }`}
-                                onClick={() => handleClick2("cancel-btn")}
-                            >
-                                Cancel
-                            </button>
+                        </div> 
+                    </div>
 
-                            <Link to="/home2"
-                                type="button"
-                                id="start-btn"
-                                className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
-                                    isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
-                                }`}
-                                onClick={() => handleClick2("start-btn")}
-                            >
-                                Start bulk update
-                            </Link>
-                        </div>
-
-                    </div> 
                 </div>
-
             </div>
         </div>
     </div>
