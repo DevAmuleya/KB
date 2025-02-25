@@ -2,20 +2,13 @@ import React, { useState } from 'react';
 import { Search,  Rocket, ChevronsUpDown,Laptop, ChevronLeft,ChevronRight, UserRoundCheck, Plus,UserMinus } from 'lucide-react';
 import logo from "../assets/image.png";
 
-const Home2 = () => {
+const Home2 = ({ showPricingRule, value, handleChange }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
     setIsSelected((prev) => !prev);
     
     }; 
-    
-    const [value, setValue] = useState(10); // Default value
-
-    // Function to update value
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
 
   return (
     <div className='px-2 '>
@@ -90,17 +83,16 @@ const Home2 = () => {
                     </div>
                 </div>
 
-                <div className='border max-w-[900px]  hidden sm:block mt-10 my-5 w-full'></div>
 
-                <div className="p-5 max-w-[795px] mx-auto border rounded-lg my-10 sm:mt-14 ">
+                <div className={`p-5 max-w-[795px] mx-auto border rounded-lg my-10 sm:mt-14 ${showPricingRule ? "block" : "hidden"}`}>
                     <div className='mb-4'>
                         <h1>In Queue</h1>
                         <p>View pricing updates that are in queue</p>
                     </div>
                     
-                    <div className='w-full'>
+                    <div className='w-full '>
                         <h1>Updating Pricing rule...</h1>
-                        <div className="w-full flex justify-between items-center">
+                        <div className='w-full flex justify-between items-center'>
                             <div className='flex w-full'>
                                 <input 
                                     id="search-input"

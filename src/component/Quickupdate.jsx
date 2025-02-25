@@ -3,17 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
 import {  Search, ChevronsUpDown, ChevronLeft, House, Upload, BookOpenText } from "lucide-react";
 
-const Quickupdate = () => {
+const Quickupdate = ({ handleButtonClick, isClicked }) => {
 
        const [isOpen, setIsOpen] = useState(false);
 
        const [selectedRound2, setSelectedRound2] = useState(null);
-
-        const [isClicked, setIsClicked] = useState('');
-        
-        const handleClick2 = (buttonId) => {
-            setIsClicked(buttonId); 
-        };
 
         const [selectedOption, setSelectedOption] = useState("bulk");
     
@@ -275,7 +269,7 @@ const Quickupdate = () => {
                                     className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
                                         isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                     }`}
-                                    onClick={() => handleClick2("cancel-btn")}
+                                    onClick={() => handleButtonClick("cancel-btn")}
                                 >
                                     Cancel
                                 </button>
@@ -286,7 +280,7 @@ const Quickupdate = () => {
                                     className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
                                         isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                     }`}
-                                    onClick={() => handleClick2("start-btn")}
+                                    onClick={() => handleButtonClick("start-btn")}
                                 >
                                     Start bulk update
                                 </Link>

@@ -3,34 +3,17 @@ import { Link } from "react-router-dom";
 import logo from "../assets/image.png";
 import {  Search, ChevronRight, ChevronsUpDown, ChevronLeft, House, Upload, BookOpenText } from "lucide-react";
 
-const Bulkupdate = () => {
+const Bulkupdate = ({ showPricingRule, value, handleChange, handleButtonClick, isClicked }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-     const [value, setValue] = useState(10);
-  
-    // Function to update value
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
 
-    const [isClicked, setIsClicked] = useState(null);
-
-    const handleClick2 = (buttonId) => {
-        setIsClicked(buttonId); 
-    };
-
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [isSelected, setIsSelected] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('bulk');
 
     const options = [
         { id: "bulk", label: "Bulk Update" },
         { id: "quick", label: "Quick Update", path: "/quickupdate" },
     ];
 
-    const handleOptionChange = (id) => {
-        setSelectedOption(id);
-        setIsSelected(id === "bulk"); // ✅ Only set `isSelected` when "bulk" is chosen
-    };
 
     const [selectedRound, setSelectedRound] = useState("");
 
@@ -106,38 +89,58 @@ const Bulkupdate = () => {
                         <div className="flex flex-wrap gap-5 w-full p-2">
                             {options.map(({ id, label, path }) => (
                                 <div key={id} className="flex-[1_0_200px]">
-                                    <label
-                                        htmlFor={id}
-                                        className={`flex items-center max-w-[254px] p-3 cursor-pointer rounded-lg border border-[#192231] 
-                                            ${selectedOption === id ? "bg-gray-700 text-white" : "bg-white text-gray-700"}`}
-                                        onClick={() => {
-                                            setSelectedOption(id);
-                                            setIsSelected(id === "bulk");
-                                        }}
-                                    >
-                                        <div className={`w-[20px] h-[20px] border-2 rounded-full flex items-center justify-center
-                                            ${selectedOption === id ? "border-white" : "border-[#192231]"}`}>
-                                            
-                                            <input 
-                                                type="radio" 
-                                                name="updateType" 
-                                                id={id} 
-                                                className="hidden peer"
-                                                checked={selectedOption === id} 
-                                                onChange={() => setSelectedOption(id)}
-                                            />
-                                            <div className="w-[6px] h-[6px] bg-transparent rounded-full"></div>
-                                        </div>
-
-                                        {path ? (
-                                            // ✅ Wrap "Quick Update" in a <Link> to navigate
-                                            <Link to={path} className="text-sm pl-5 min-w-fit">
-                                                {label}
-                                            </Link>
-                                        ) : (
+                                    {/* Check if path exists and wrap with Link */}
+                                    {path ? (
+                                        <Link to={path}>
+                                            <label
+                                                htmlFor={id}
+                                                className={`flex items-center max-w-[254px] p-3 cursor-pointer rounded-lg border border-[#192231] 
+                                                    ${selectedOption === id ? "bg-gray-700 text-white" : "bg-white text-gray-700"}`}
+                                                onClick={() => {
+                                                    setSelectedOption(id);
+                                                    setIsSelected(id === "bulk");
+                                                }}
+                                            >
+                                                <div className={`w-[20px] h-[20px] border-2 rounded-full flex items-center justify-center
+                                                    ${selectedOption === id ? "border-white" : "border-[#192231]"}`}>
+                                                    <input 
+                                                        type="radio" 
+                                                        name="updateType" 
+                                                        id={id} 
+                                                        className="hidden peer"
+                                                        checked={selectedOption === id} 
+                                                        onChange={() => setSelectedOption(id)}
+                                                    />
+                                                    <div className={`w-[6px] h-[6px] rounded-full ${selectedOption === id ? "bg-white" : "bg-transparent"}`}></div>
+                                                </div>
+                                                <span className="text-sm pl-5 min-w-fit">{label}</span>
+                                            </label>
+                                        </Link>
+                                    ) : (
+                                        <label
+                                            htmlFor={id}
+                                            className={`flex items-center max-w-[254px] p-3 cursor-pointer rounded-lg border border-[#192231] 
+                                                ${selectedOption === id ? "bg-gray-700 text-white" : "bg-white text-gray-700"}`}
+                                            onClick={() => {
+                                                setSelectedOption(id);
+                                                setIsSelected(id === "bulk");
+                                            }}
+                                        >
+                                            <div className={`w-[20px] h-[20px] border-2 rounded-full flex items-center justify-center
+                                                ${selectedOption === id ? "border-white" : "border-[#192231]"}`}>
+                                                <input 
+                                                    type="radio" 
+                                                    name="updateType" 
+                                                    id={id} 
+                                                    className="hidden peer"
+                                                    checked={selectedOption === id} 
+                                                    onChange={() => setSelectedOption(id)}
+                                                />
+                                                <div className={`w-[6px] h-[6px] rounded-full ${selectedOption === id ? "bg-white" : "bg-transparent"}`}></div>
+                                            </div>
                                             <span className="text-sm pl-5 min-w-fit">{label}</span>
-                                        )}
-                                    </label>
+                                        </label>
+                                    )}
                                 </div>
                             ))}
                         </div>
@@ -257,7 +260,7 @@ const Bulkupdate = () => {
                         <div className=' w-full flex-[1_0_150px]'>
                             <div>                              
                                 <div className=" w-full">
-                                    <div className={`${isSelected ? "block" : "hidden"} p-2 border rounded-lg my-5 w-full`}>
+                                    <div className={`p-2 border rounded-lg my-5 w-full transition-all duration-300 ${showPricingRule ? "block" : "hidden"}`}>
                                         <h1>Updating Pricing rule...</h1>
                                         <div className="w-full flex justify-between items-center my-3">
                                             <div className='flex w-full'>
@@ -283,9 +286,7 @@ const Bulkupdate = () => {
                                             <p>
                                                 {`${value}% of the complete `}
                                             </p>
-                                        </div>
-                                        
-                                        
+                                        </div>    
                                     </div> 
                                                     
                                     <div className=" border p-2 rounded-lg">
@@ -343,29 +344,30 @@ const Bulkupdate = () => {
                                     </div>
                                 </div> 
 
-                                <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
-                                    
-                                    <button
+                                <div className="w-full p-5">
+                                    <div className="border rounded-lg mt-[45px] py-5 px-10 flex flex-wrap gap-x-8 gap-y-2 w-full">
+                                        <button
                                         type="button"
                                         id="cancel-btn"
                                         className={`px-4 py-2 rounded-lg flex-[1_0_120px] transition border border-[#192231] ${
                                             isClicked === "cancel-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
-                                        onClick={() => handleClick2("cancel-btn")}
-                                    >
+                                        onClick={() => handleButtonClick("cancel-btn")}
+                                        >
                                         Cancel
-                                    </button>
+                                        </button>
 
-                                    <Link to="/quickupdate"
+                                        <button
                                         type="button"
                                         id="start-btn"
                                         className={`p-2 rounded-lg flex-[1_0_120px] min-w-max transition border border-[#192231] ${
                                             isClicked === "start-btn" ? "bg-[#192231] text-white" : "bg-white text-[#192231]"
                                         }`}
-                                        onClick={() => handleClick2("start-btn")}
-                                    >
+                                        onClick={() => handleButtonClick("start-btn")}
+                                        >
                                         Start bulk update
-                                    </Link>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
